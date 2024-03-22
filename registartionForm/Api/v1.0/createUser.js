@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const cors = require('cors'); 
 const { body, validationResult } = require("express-validator");
 const userschema = require("../../model/user");
+
+router.use(cors());
 
 router.post("/",[
   body("id").isString().notEmpty(),

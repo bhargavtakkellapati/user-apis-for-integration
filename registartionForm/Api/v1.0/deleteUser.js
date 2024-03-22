@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const cors = require('cors'); 
 const userschema = require("../../model/user");
 
+router.use(cors());
 
 router.delete("/:id", async (req, res) => {
   try {  

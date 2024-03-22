@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const cors = require('cors'); 
 
 const userschema = require("../../model/user");
+
+
+router.use(cors());
 
 router.get("/:id", async (req, res) => {
   try {
@@ -13,7 +17,7 @@ router.get("/:id", async (req, res) => {
     return res.status(200).json({
         status: 200,
         message: "get user successfully",
-        data:userData,
+        data: userData,
       });
   } catch (error) {
     return res
@@ -21,4 +25,5 @@ router.get("/:id", async (req, res) => {
       .json({ status: 404, message: "error", error: error });
   }
 });
+
 module.exports = router;
