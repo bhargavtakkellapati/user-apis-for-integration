@@ -7,7 +7,8 @@ router.use(cors());
 
 router.delete("/:id", async (req, res) => {
   try {  
-    const deleteUser = await userschema.findByIdAndDelete({_id:(req.params.id)});
+    const deleteUser = await userschema.findByIdAndDelete(req.params.id);
+    console.log(deleteUser)
     if (!deleteUser) {
       return res.status(404).json({ message: "record not found" });
     }
